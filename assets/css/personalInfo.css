@@ -1,0 +1,96 @@
+/* 
+    Document   : personalInfo
+    Created on : 23/01/2013, 04:05:06 PM
+    Author     : herrerau
+    Description:
+        Hold the style of the personal informatin in the profile page.
+*/
+root { 
+    display: block;
+}
+#personalInfo{
+    float: left;    
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 5px 4px; 
+    margin: 5px 2px 5px 2px;  
+    width: 570px;
+}
+[id^="Holder"],[id*="Holder"]{
+    float: left;
+    margin: 1px 10px 1px 1px;
+}
+#nameHolder,
+#timezoneHolder,
+#phoneHolder,
+#teamHolder,
+#rolesHolder,
+#productHolder,
+#statusHolder{
+    clear: left;
+}
+#schedSaveButon{
+    clear: both;
+    float: right;
+    margin: 15px 0px 0px 0px;
+}
+#chgpass{
+    float: right;
+}
+#displayNameT,
+#displayMailT, 
+#displayTimezoneT,
+#displayBdayT, 
+#displayPhoneT, 
+#displayPremierT, 
+#displayProductT,
+#displayRolesT, 
+#displayStatusT, 
+#displayTeamT{    
+    margin: 0px 5px 0px 3px;
+    font-weight: bold;
+}
+#teamHolder,
+#premierHolder,
+#rolesHolder,
+#productHolder,
+#statusHolder{
+    line-height: 26px;
+}
+
+#displayTeamT,
+#displayPremierT,
+#displayRolesT,
+#displayProductT,
+#displayStatusT,
+#displayTeam,
+#displayPremier,
+#displayRoles,
+#displayProduct,
+#displayStatus{
+    float: left;
+}
+#displayProduct{
+    -moz-column-count:2; /* Firefox */
+    -webkit-column-count:2; /* Safari and Chrome */
+    column-count:2;
+    -moz-column-gap:10px; /* Firefox */
+    -webkit-column-gap:10px; /* Safari and Chrome */
+    column-gap:10px;
+}
+#displayProduct ul{
+    list-style: square;    
+    margin: 0px 0px 0px 0px;
+    min-width: 240px;
+}
+/*********button********/
+#personalInfoButton{
+    clear: both;
+    float: right;
+}
+[class^="icon-"], [class*=" icon-"]{
+    color: #0096D6;
+}

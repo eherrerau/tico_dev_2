@@ -1,0 +1,51 @@
+/* 
+    Document   : scheduleExcepListForUser
+    Created on : 23/01/2013, 04:40:18 PM
+    Author     : herrerau
+    Description:
+        Holds whats in the Schedule Exception list for the last 30 days
+*/
+
+root { 
+    display: block;
+}
+#schedExcepListForUser{
+    clear: both;
+    float: left;    
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 5px 4px; 
+    margin: 5px 2px 5px 2px; 
+    width: 570px;
+    /*overflow: auto;*/    
+}
+#schedExcepListForUser form{
+    height: 8px;
+}
+#schedExcepListForUser #exceptionLineRow{
+    clear: both;
+}
+#exceptionDeleteButton,
+#exceptionIcon,
+#exceptionReason,
+#exceptionFrom,
+#exceptionTo{
+    float: left;
+}
+#exceptionIcon{    
+    width: 16px;
+    margin: 0px 5px 0px 5px;
+}
+#exceptionReason{
+    font-weight: bold;
+    min-width: 75px;
+}
+#exceptionFrom{
+    min-width: 190px;
+}
+#exceptionTo{
+    min-width: 175px;
+}

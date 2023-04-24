@@ -1,0 +1,59 @@
+/* 
+    Document   : fonts
+    Created on : 17/01/2013, 11:28:07 AM
+    Author     : herrerau
+    Description:
+        Store only the Official Fonts from HP.
+*/
+@charset "utf-8";
+root { 
+    display: block;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-Light';
+    src: url('../fonts/HPSimplifiedW04-Light.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-Light.woff') format('woff'); 
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-LightItalic';
+    src: url('../fonts/HPSimplifiedW04-LightItalict.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-LightItalic.woff') format('woff'); 
+    font-weight: lighter;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-Regular';
+    src: url('../fonts/HPSimplifiedW04-Regular.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-Bold';
+    src: url('../fonts/HPSimplifiedW04-Bold.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-Italic';
+    src: url('../fonts/HPSimplifiedW04-Italic.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'HPSimplifiedW04-BoldItalic';
+    src: url('../fonts/HPSimplifiedW04-BoldItalic.eot');
+    src: local('☠'), 
+        url('../fonts/HPSimplifiedW04-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}

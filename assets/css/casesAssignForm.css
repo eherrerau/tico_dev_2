@@ -1,0 +1,86 @@
+/* 
+    Document   : casesAssignForm
+    Created on : 14/09/2012, 10:24:45 AM
+    Author     : herrerau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+root { 
+    display: block;
+}
+#CRUDCases{
+    float: left;
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 2px 4px;         
+    z-index:3;    
+    margin: 5px 2px 5px 2px;
+    max-width: 480px;    
+}
+#CRUDCases div{      
+    line-height: 26px;
+}
+#CRUDCases div,
+#caseNum_lb,
+#typeOfCase_LB,
+#impact_lb,
+#product_lb,
+#premier_lb,
+#engineer_lb{   
+    float: left;
+}
+#SAIDHolder,
+#engineerHolderAdd{
+    display: none;
+}
+#CRUDCases input[type="text"], input[type="password"]{
+    height: 17px;
+    font-size: 15px;
+}
+#CRUDCases select{
+    height:22px;
+    font-size:14px;    
+}
+/** ---- Buttons Start---- **/
+/*-- Add Button--*/
+#engineerHolderAdd{    
+    float: right;
+    margin: 0px 5px 0px 0px;
+}
+#CRUDCases #formButtonHolder{
+    clear:both;    
+    margin: 0px 5px 0px 0px;
+}
+#formSubmitAdd, 
+#formSubmitMod,
+#formSubmitDel,
+#CRUDCases #formButtonHolder{
+    float: right;    
+}
+/*----- News -----*/
+#principal #messages{    
+    clear: both;
+    float: left;    
+    padding: 0;
+    margin: 0px 5px 0px 0px;    
+    color: #FF0000;
+    font-size: 0.8em;
+    font-weight: bold;
+    right: 0px;
+}
+
+#searchCase_lb{
+    clear: left;
+}
+#typeOfCaseHolder,
+#impactHolder,
+#productHolder,
+#premierHolder,
+#SAIDHolder,
+#caseNumHolder,
+#engineerHolderAdd{
+    margin: 0px 0px 0px 10px;
+}

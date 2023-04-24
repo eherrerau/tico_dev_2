@@ -1,0 +1,42 @@
+/* 
+    Document   : newsBox
+    Created on : 12/03/2013, 03:19:34 PM
+    Author     : herrerau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#newsBox{
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 2px 4px; 
+    margin: 5px 2px 5px 2px;
+}
+#staticNewsContent{
+    padding: 2px 0px 0px 0px;
+}
+#staticNewContentTitle, #dynamicNewContentTitle{
+    /*border: solid thin #CCCCCC;*/
+    font-weight: bold;
+    text-align: center;
+}
+.staticNewsElement, .dynamicNewsElement{
+    border: solid thin #CCCCCC;
+    padding: 0px 0px 0px 2px;
+}
+#newsDivider{
+    border-bottom: dashed 2px #CCCCCC;
+}
+#dynamicNewsContent{    
+}
+#dynamicNewContentTitle{    
+}
+.dynamicNewsElement{    
+}

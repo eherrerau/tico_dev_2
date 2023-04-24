@@ -1,0 +1,277 @@
+@charset "utf-8";
+/* CSS Document */
+@import "globalStyle.css";
+/* ===== mainContent ===== */
+#principal #fullPage{
+    position:absolute;
+    font-size:12px;
+    width:98%;
+    left:1%;
+    top:100px;
+    height:80%;
+    line-height:200%;
+    border:solid thin #CCC;
+    border-radius: 5px 5px;
+    -moz-border-radius:5px;
+}
+#principal #fullPage #tittle{
+    position:absolute;
+    font-size:12px;
+    width:50%;
+    left:5px;
+    top:0px;
+    height:20px;
+}
+#principal #fullPage #responseMessage{
+    position:absolute;
+    font-size:12px;
+    width:45%;
+    left:50%;
+    top:0px;
+    height:20px;
+}
+#principal #fullPage #users {left:1%;}
+#principal #fullPage #permission {left:34%;}
+#principal #fullPage #other {left:67%;}
+
+#principal #fullPage #users, 
+#principal #fullPage #permission, 
+#principal #fullPage #other {
+    position:absolute;
+    border:solid thin #999;
+    border-radius:5px 5px 5px 5px;
+    -moz-border-radius:5px;
+    font-size:12px;
+    width:32%;
+    top:30px;
+    height:90%;
+}
+#principal #fullPage #users #subMenu, 
+#principal #fullPage #permission #subMenu,  
+#principal #fullPage #other #subMenu{
+    position:absolute;
+    right:1%;
+    top:0;
+}
+#principal #fullPage #users #subMenu #opt1, 
+#principal #fullPage #users #subMenu #opt2, 
+#principal #fullPage #users #subMenu #opt3, 
+#principal #fullPage #permission #subMenu #opt1, 
+#principal #fullPage #permission #subMenu #opt2, 
+#principal #fullPage #permission #subMenu #opt3, 
+#principal #fullPage #other #subMenu #opt1, 
+#principal #fullPage #other #subMenu #opt2, 
+#principal #fullPage #other #subMenu #opt3{
+    list-style:none;
+    float:left;
+    font-family: HPSimplifiedW04-Light, Verdana, Geneva, sans-serif;
+    font-size:12px;
+    display:block;
+    color:#333;
+    padding:0 5px 0 5px;
+    margin-right: 4px;
+    line-height:200%;
+    background:url(../media/images/button.png) no-repeat left bottom;
+    border:none;
+    border:solid thin #CCC;
+    border-radius:0 0 5px 5px;
+    -moz-border-radius:5px;
+
+}	
+#principal #fullPage #users #logoUsers{
+    background-image:url(../media/images/profile.png);
+}
+#principal #fullPage #permission #logoPermission{
+    background-image: url(../media/images/schExcM.gif)
+}
+#principal #fullPage #other #logoOther{
+    background-image: url(../media/images/otherM.gif)
+}
+#principal #fullPage #users #logoUsers, 
+#principal #fullPage #permission #logoPermission, 
+#principal #fullPage #other #logoOther{
+    position:absolute;
+    width:128px;
+    height:128px;
+    top:0;
+    left:0;	
+}
+#principal #fullPage #users #tittleUsers, 
+#principal #fullPage #permission #tittlePermission, 
+#principal #fullPage #other #tittleOther{
+    position:absolute;
+    left:128px;
+    top:88px;
+    height:20px;
+}
+#principal #fullPage #users #tittleTab{
+    position:absolute;
+    top:115px;
+    height:20px;
+    color:#666;
+    left:10px;
+    font-family: HPSimplifiedW04-Light, Verdana, Geneva, sans-serif;
+    font-size:12px;
+}
+#principal #fullPage #users #dynamicForm{
+    position:absolute;
+    top:135px;
+    left:1%;
+    width:98%;
+    height:70%;
+    font-size:12px;
+    color: #333;
+    background: #F4F4F4;
+    border:none;
+    border:solid thin #CCC;
+    border-radius: 5px;
+    -moz-border-radius:5px;
+}
+#principal #fullPage #users #dynamicForm #existusrLbl{
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:120px;
+}
+#principal #fullPage #users #dynamicForm #usrdrp{
+    position:absolute;
+    left:122px;
+    top:2px;
+    width:160px;
+}
+#principal #fullPage #users #dynamicForm #usrLbl{
+    position:absolute;
+    left:2px;
+    top:5px;
+    width:120px;
+}
+#principal #fullPage #users #dynamicForm #usrTxt{
+    position:absolute;
+    left:122px;
+    top:5px;
+    width:160px;
+}
+#principal #fullPage #users #dynamicForm #nameLbl{
+    position:absolute;
+    left:2px;
+    top:42px;
+    width:120px;
+}
+#principal #fullPage #users #dynamicForm #nameTxt{
+    position:absolute;
+    left:122px;
+    top:42px;
+    width:160px;
+}
+#principal #fullPage #users #dynamicForm #mailLbl{
+    position:absolute;
+    left:2px;
+    top:77px;
+    width:120px;
+}
+#principal #fullPage #users #dynamicForm #mailTxt{
+    position:absolute;
+    left:122px;
+    top:77px;
+    width:160px;
+}
+#principal #fullPage #users #dynamicForm #premierChk{
+    position:absolute;
+    right:80px;
+    top:7px;
+    width:10px;
+}
+#principal #fullPage #users #dynamicForm #premierLbl{
+    position:absolute;
+    right:20px;
+    top:7px;
+    width:50px;
+}
+#principal #fullPage #users #dynamicForm #activeChk{
+    position:absolute;
+    right:80px;
+    top:37px;
+    width:10px;
+}
+#principal #fullPage #users #dynamicForm #activeLbl{
+    position:absolute;
+    right:20px;
+    top:37px;
+    width:50px;
+}
+#principal #fullPage #users #dynamicForm #roles{
+    position:absolute;
+    left:1%;
+    top:120px;
+    width:48%;
+    height:55%;
+    background:#FFFFFF;
+    border:none;
+    border:solid thin #CCC;
+    border-radius: 5px;
+    -moz-border-radius:5px;
+}
+#principal #fullPage #users #dynamicForm #roles #rolesTittle, 
+#principal #fullPage #users #dynamicForm #products #productsTittle{
+    position:absolute;
+    top:-18px;
+    font-size:10px;
+    left:1%;
+    color:#999;	
+}
+#principal #fullPage #users #dynamicForm #products #productsContent, 
+#principal #fullPage #users #dynamicForm #roles #rolesContent, 
+#principal #fullPage #users #dynamicForm #products #productsContentM, 
+#principal #fullPage #users #dynamicForm #roles #rolesContentM{
+    position:absolute;
+    top:22px;
+    font-size:10px;
+    left:1%;
+    color:#999;
+    width:100%;
+    height:99%;
+    overflow:auto;
+    color:#000;	
+}
+#principal #fullPage #users #dynamicForm #products{
+    position:absolute;
+    left:51%;
+    top:120px;
+    width:48%;
+    height:55%;
+    background:#FFFFFF;
+    border:none;
+    border:solid thin #CCC;
+    border-radius: 5px;
+    -moz-border-radius:5px;
+}
+#principal #fullPage #users #dynamicForm #button{
+    position:absolute;
+    right:30px;
+    bottom:10px;
+    width:55px;
+    height:30px;
+    padding:0;	
+    font-size:12px;
+}
+#principal #fullPage #users #dynamicForm #button a:link, 
+#principal #fullPage #users #dynamicForm #button a:visited{	
+    position:absolute;
+    text-decoration:none;
+    padding:0;
+    top:5px;
+    width:45px;
+    height:27px;
+    background:url(../media/images/bugen.png) no-repeat left bottom;
+    text-align:center;
+    padding:0 15px 0 15px;
+    margin-right: 5px;
+    line-height:190%;
+    color:#FFF;
+    border:solid thin #3079ED;
+    border-radius:5px;
+    -moz-border-radius:5px;
+}
+#principal #fullPage #users #dynamicForm #button a:hover, #principal #fullPage #users #dynamicForm #button a:active{
+    background-position:left top;
+}

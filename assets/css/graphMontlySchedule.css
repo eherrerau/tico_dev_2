@@ -1,0 +1,140 @@
+/* 
+    Document   : graphMontlySchedule
+    Created on : 23/01/2013, 08:25:21 PM
+    Author     : herrerau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+/***** Monthly schedule *****/
+#mainContentMonth{
+    position:relative;
+    font-size:12px;	
+}
+#mainContentMonth #rowByEngineer{
+    position:relative;
+    width:98%;
+    margin:0 auto;
+    padding:0;
+    color: #333;
+    height: 15px;
+}
+#mainContentMonth #rowByEngineer #engineerNameTitle{
+    position:absolute;
+    left:0;
+    margin-left:2px;
+    border: solid 1px #333;
+    border-radius: 0;
+    width: 147px;
+    height: 15px;
+}
+#mainContentMonth #rowByEngineer #dayNum1, #mainContentMonth #rowByEngineer #dayNum2, #mainContentMonth #rowByEngineer #dayNum3, #mainContentMonth #rowByEngineer #dayNum4, #mainContentMonth #rowByEngineer #dayNum5, #mainContentMonth #rowByEngineer #dayNum6, #mainContentMonth #rowByEngineer #dayNum7, #mainContentMonth #rowByEngineer #dayNum8, #mainContentMonth #rowByEngineer #dayNum9, #mainContentMonth #rowByEngineer #dayNum10, #mainContentMonth #rowByEngineer #dayNum11, #mainContentMonth #rowByEngineer #dayNum12, #mainContentMonth #rowByEngineer #dayNum13, #mainContentMonth #rowByEngineer #dayNum14, #mainContentMonth #rowByEngineer #dayNum15, #mainContentMonth #rowByEngineer #dayNum16, #mainContentMonth #rowByEngineer #dayNum17, #mainContentMonth #rowByEngineer #dayNum18, #mainContentMonth #rowByEngineer #dayNum19, #mainContentMonth #rowByEngineer #dayNum20, #mainContentMonth #rowByEngineer #dayNum21, #mainContentMonth #rowByEngineer #dayNum22, #mainContentMonth #rowByEngineer #dayNum23, #mainContentMonth #rowByEngineer #dayNum24, #mainContentMonth #rowByEngineer #dayNum25, #mainContentMonth #rowByEngineer #dayNum26, #mainContentMonth #rowByEngineer #dayNum27, #mainContentMonth #rowByEngineer #dayNum28, #mainContentMonth #rowByEngineer #dayNum29, #mainContentMonth #rowByEngineer #dayNum30, #mainContentMonth #rowByEngineer #dayNum31{
+    position:absolute;
+    display:block;
+    text-align:center;
+    width:40px;
+    margin:0;
+    padding:0;
+    border: solid 1px #333;
+    border-radius: 0;
+    color: #333;
+    height: 100%;
+}
+
+#mainContentMonth #rowByEngineer #dayNum1{
+    left:150px;
+}
+#mainContentMonth #rowByEngineer #dayNum2{
+    left:190px;
+}
+#mainContentMonth #rowByEngineer #dayNum3{
+    left:230px;
+}
+#mainContentMonth #rowByEngineer #dayNum4{
+    left:270px;
+}
+#mainContentMonth #rowByEngineer #dayNum5{
+    left:310px;
+}
+#mainContentMonth #rowByEngineer #dayNum6{
+    left:350px;
+}
+#mainContentMonth #rowByEngineer #dayNum7{
+    left:390px;
+}
+#mainContentMonth #rowByEngineer #dayNum8{
+    left:430px;
+}
+#mainContentMonth #rowByEngineer #dayNum9{
+    left:470px;
+}
+#mainContentMonth #rowByEngineer #dayNum10{
+    left:510px;
+}
+#mainContentMonth #rowByEngineer #dayNum11{
+    left:550px;
+}
+#mainContentMonth #rowByEngineer #dayNum12{
+    left:590px;
+}
+#mainContentMonth #rowByEngineer #dayNum13{
+    left:630px;
+}
+#mainContentMonth #rowByEngineer #dayNum14{
+    left:670px;
+}
+#mainContentMonth #rowByEngineer #dayNum15{
+    left:710px;
+}
+#mainContentMonth #rowByEngineer #dayNum16{
+    left:750px;
+}
+#mainContentMonth #rowByEngineer #dayNum17{
+    left:790px;
+}
+#mainContentMonth #rowByEngineer #dayNum18{
+    left:830px;
+}
+#mainContentMonth #rowByEngineer #dayNum19{
+    left:870px;
+}
+#mainContentMonth #rowByEngineer #dayNum20{
+    left:910px;
+}
+#mainContentMonth #rowByEngineer #dayNum21{
+    left:950px;
+}
+#mainContentMonth #rowByEngineer #dayNum22{
+    left:990px;
+}
+#mainContentMonth #rowByEngineer #dayNum23{
+    left:1030px;
+}
+#mainContentMonth #rowByEngineer #dayNum24{
+    left:1070px;
+}
+#mainContentMonth #rowByEngineer #dayNum25{
+    left:1110px;
+}
+#mainContentMonth #rowByEngineer #dayNum26{
+    left:1150px;
+}
+#mainContentMonth #rowByEngineer #dayNum27{
+    left:1190px;
+}
+#mainContentMonth #rowByEngineer #dayNum28{
+    left:1230px;
+}
+#mainContentMonth #rowByEngineer #dayNum29{
+    left:1270px;
+}
+#mainContentMonth #rowByEngineer #dayNum30{
+    left:1310px;
+}
+#mainContentMonth #rowByEngineer #dayNum31{
+    left:1350px;
+}

@@ -1,0 +1,38 @@
+/* 
+    Document   : newsExceptions
+    Created on : 23/01/2013, 08:30:51 PM
+    Author     : herrerau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+root { 
+    display: block;
+}
+#exceptions{
+    float: right;   
+    clear: right;
+    width: 33%;    
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    margin: 10px 0px 0px 0px;
+    padding: 2px 4px 3px 4px;
+    box-shadow: 5px 10px 20px #767676;
+    background-color: #FFFFFF;
+}
+#exceptions #scheExcTittle{    
+    font-weight:bold;    
+    text-align:center;    
+    margin: 0px 1px 1px 1px;
+}
+#exceptions #row{
+    clear: both;    
+    text-align: center;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    margin-left:2px;
+    padding: 2px 4px 3px 4px;
+    box-shadow: 5px 10px 20px #767676;
+    background-color: #FFFFFF;
+}

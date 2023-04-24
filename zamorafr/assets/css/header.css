@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ===== header ===== */
+#header{
+    float: left;
+    height:25px;
+    width:100%;
+    background:#0096D6;	
+    z-index:1;
+}
+#header #headerImage img{
+    float: left;
+    width: 23px;
+    height: 23px;
+    margin: 1px 0px 1px 3px;   
+}
+
+#header #headerTitleH1 {
+    float: left;    
+}
+#header #userLogin{
+    float:right;
+    padding: 5px 10px 0px 0px;
+    color: #FFFFFF;    
+    margin-left:20px;
+}
+#header #rightInfo{
+    float: right;
+}
+#header #rightInfo #QMbar{
+    float: right;
+    padding: 5px 0px 0px 0px;
+    margin-left:20px;
+}
+#header #rightInfo #QMbar #QMLabel{
+    float: right;
+    padding:0px;
+    color:#FFFFFF;	
+}
+#header #rightInfo #QMbar #QMName{
+    float: right;
+    padding:0px;
+    color:#FFFFFF;
+    margin-left:5px;
+}

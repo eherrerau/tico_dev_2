@@ -1,0 +1,70 @@
+/* 
+    Document   : exceptionBox
+    Created on : 23/01/2013, 04:07:40 PM
+    Author     : herrerau
+    Description:
+        Holds the style of the schedule exceptions in the profile box on the profile page.
+*/
+
+root { 
+    display: block;
+}
+#exception{
+    clear: both;
+    float: left;
+    width: 570px;
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 5px 4px; 
+    margin: 5px 2px 5px 2px; 
+}
+#engineerNameTitle {
+    clear: left;
+    float: left;
+    margin: 10px 3px 0px 10px;
+}
+#engineerNameList{
+    float: left;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+#exception #excTitle{
+    float: left;
+    margin: 10px 5px 0px 10px;
+}
+#exception #tipo2{    
+    margin: 10px 3px 0px 10px;
+    float: left;
+}
+#exception #schTypeList{
+    float: left;     
+}
+#exception #dateFrom{
+    clear: both;
+    float: left;
+    margin: 10px 3px 0px 10px;
+}
+#exception #dateTo{
+    float: left;
+    margin: 10px 3px 0px 10px;
+}
+#exception #timeFrom{  
+    clear: left;
+    float: left;
+    margin: 10px 3px 0px 10px;
+}
+#exception #timeTo{
+    float: left;
+    margin: 10px 3px 0px 10px;
+}
+#exception #timeAll{
+    float: left;
+    margin: 7px 3px 0px 10px;
+}
+#createExc{    
+    float: right;
+    margin: 10px 0px 15px 0px;
+}

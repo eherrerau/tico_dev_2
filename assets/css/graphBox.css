@@ -1,0 +1,186 @@
+/* 
+    Document   : graphBox
+    Created on : 18/01/2013, 07:02:41 PM
+    Author     : herrerau
+    Description:
+        Holds the entire CSS of the reports and menus reports on the index.
+*/
+root { 
+    display: block;
+}
+
+/* --right section of the screen -- */
+#schedulesBox{
+    clear: both;
+    float:left;
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 2px 4px; 
+    margin: 5px 2px 5px 2px;
+}
+/*
+* Unsed, since the graphs menus will be move to the reports page.
+*/
+/*#schedMenus{
+    float: left;    
+}
+#opt1, 
+#opt2, 
+#opt3, 
+#opt4,
+#opt5,
+#opt6,
+#opt7{
+    float: left;
+    display: block;
+    margin: 2px 4px 2px 3px;
+    color:#FFFFFF;
+    font-weight:bold;
+}
+#opt1 a:Link,
+#opt1 a:active, 
+#opt2 a:Link,
+#opt2 a:active,
+#opt3 a:Link,
+#opt3 a:active,
+#opt4 a:Link,
+#opt4 a:active,
+#opt5 a:Link,
+#opt5 a:active,
+#opt6 a:Link,
+#opt6 a:active,
+#opt7 a:Link,
+#opt7 a:active {
+    color:#822980;
+    text-decoration:none;
+    font-weight:bold;    
+}*/
+#schedulesBox {
+    clear: both;
+    float: left;    
+    min-width: 452px;
+}
+#schedulesBox #tittle{
+    clear: both;
+    float: left;
+    margin-top:10px;
+}
+#schedulesBox #total_casos{
+    position:absolute;
+    top:16px;
+    right: 150px;
+    text-align:center;
+    padding: 0px 3px 0px 3px;
+    color:#C70505;
+    text-decoration:underline;
+    font-weight:bold;
+    border-top-width: thin;
+    border-right-width: thin;
+    border-bottom-width: medium;
+    border-left-width: thin;
+    border-top-style: dotted;
+    border-right-style: dotted;
+    border-bottom-style: solid;
+    border-left-style: dotted;
+    border-top-color: #C70505;
+    border-right-color: #C70505;
+    border-bottom-color: #C70505;
+    border-left-color: #C70505;
+}
+#schedulesBox #MyStatisticsBox{
+    clear: both;
+    float: left;
+    background-color: #FFFFFF;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    box-shadow: 5px 10px 20px #767676;
+    -moz-border-radius:5px;
+    padding: 2px 4px 2px 4px;         
+    z-index:3;    
+    margin: 5px 2px 5px 2px;
+    max-width: 460px;
+    }
+#schedulesBox #avgBar{
+    position:absolute;
+    left:195px;
+    top:0;
+    height:100%;
+    border-right:#FF0000 solid;	
+}
+#schedulesBox #row{
+    clear: left;   
+    margin:0px 2px 2px 0px;	
+}
+#schedulesBox #row #engineer{
+    float: left;
+    min-width: 150px;
+}
+#schedulesBox #row #tamano{
+    float: left;    
+    text-align: right;
+    margin: 0px 5px 0px 5px;
+    min-width: 40px;
+    font-weight: bold;
+}
+#schedulesBox #row #graphline{
+    float: left;        
+    background:#B7CA34;
+    border:solid thin #B7CA34;
+    height:10px;
+/*    border-radius:0px 0px 4px 0px;
+    -moz-border-radius:5px;*/
+    margin: 0px 0px 0px 5px;
+}
+/*
+* Week report: Total Cases per Engineer/This Week
+*/
+
+#schedulesBox #rowHistory{
+    clear: both;
+    float: left;    
+}
+#schedulesBox #grafico #main #rowHistory div{
+    padding:2px 0px 1px 2px;
+    border:solid thin #CCC;    
+    float: left;
+}
+#schedulesBox #grafico #main #rowHistory #dateUpdate{
+    float: left;
+    left:0;
+    width:110px;        
+}
+#schedulesBox #grafico #main #rowHistory #severityHistory{
+    float: left;    
+    width:4%;    
+}
+#schedulesBox #grafico #main #rowHistory #fromEngineerHistory{
+    float: left;
+}
+#schedulesBox #grafico #main #rowHistory #toEngineerHistory{    
+    height:12px;
+}
+#schedulesBox #grafico #main #rowHistory #motiveHistory{
+    float: left;
+}
+#schedulesBox #grafico #main #rowHistory #caseNumer2{
+    clear: left;       
+    width:80px;     
+}   
+#schedulesBox #grafico #main #rowHistory #dateUpdate2 {
+    width: 35px;    
+}
+#schedulesBox #grafico #main #rowHistory #severityHistory2{
+    width:20px;  
+}
+#schedulesBox #grafico #main #rowHistory #fromEngineerHistory2{
+    width:115px;    
+}
+#schedulesBox #grafico #main #rowHistory #toEngineerHistory2{    
+    width:115px;    
+}
+#schedulesBox #grafico #main #rowHistory #notaHistory2{  
+    width:115px;
+}

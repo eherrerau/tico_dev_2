@@ -1,0 +1,231 @@
+@charset "utf-8";
+/* CSS Document */
+/* ===== Global styles ===== */
+@import "fonts.css";
+body {
+    font-family: HPSimplifiedW04-Regular, sans-serif;
+    background-color:#FFFFFF;
+    margin:0;
+    padding:0;
+    font-size: 0.85em;
+    color: #000000;
+}
+p, h1, h2, h3, h4{
+    margin: 0.10em 0.10em 0.10em 0.10em;
+}
+h1{
+    font-family: HPSimplifiedW04-Bold;
+    font-size:1.40em;    
+    color:#000000;
+}
+h2{
+    font-size:1.20em;
+    color:#000000;
+    line-height: 1.10em;
+}
+h3{
+    font-size:1.0em;
+    color: #767676;
+    line-height: 1.0em;
+}
+h4 {
+    font-size:0.7em;
+    color:#000000;
+    line-height: 0.7em;
+}
+h5{
+    font-size:0.5em;
+    color: #E5E8E8;
+    line-height: 0.5em;
+}
+#headerTitleH1 h1{
+    font-size:1.40em;
+    color:#FFFFFF;
+    line-height: 1.40em;
+}
+div#principal{
+    margin: 0 auto;
+}
+/* ===== mainContent ===== */
+#principal #mainContent{
+    clear: both;
+    float: left;
+    width:100%;   
+}
+/*-- HP Official Buttons Regular-- */
+/* Primary Buttons Orange */
+.genericPrimaryButtonSlim a:link, 
+.genericPrimaryButtonSlim a:visited{    
+    height:26px;    
+    background-color: #D7410B;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 5px 0px 5px;
+    color: #FFFFFF;
+    border-radius: 0px 4px;
+    font-size: 16px;
+    -moz-border-radius: 0px 4px;
+    font-family: HPSimplifiedW04-Bold, sans-serif;
+    text-decoration: none;
+    alignment-baseline: middle;
+}
+.genericPrimaryButtonSlim a:hover,
+.genericPrimaryButtonSlim a:active{
+    background-color: #C1401A;
+}
+/* Secondary Buttons Blue */
+.genericSecondaryButtonSlim a:link,
+.genericSecondaryButtonSlim a:visited{    
+    height:26px;    
+    background-color: #0096d6;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 5px 0px 5px;
+    color: #FFFFFF;
+    border-radius: 0px 4px;
+    font-size: 16px;
+    -moz-border-radius: 0px 4px;
+    font-family: HPSimplifiedW04-Bold, sans-serif;
+    text-decoration: none;
+}
+.genericSecondaryButtonSlim a:hover,
+.genericSecondaryButtonSlim a:active{
+    background-color: #0084BD;
+}
+/* Tertiary Buttons Gray */
+.genericTertiaryButtonSlim a:link,
+.genericTertiaryButtonSlim a:visited{    
+    height:26px;    
+    background-color: #767676;
+    padding: 2px 10px 0px 10px;
+    margin: 0px 5px 0px 5px;
+    color: #FFFFFF;
+    border-radius: 0px 4px;
+    font-size: 16px;
+    -moz-border-radius: 0px 4px;
+    font-family: HPSimplifiedW04-Bold, sans-serif;
+    text-decoration: none;
+}
+.genericTertiaryButtonSlim a:hover,
+.genericTertiaryButtonSlim a:active{
+    background-color: #5A5A5A;
+}
+.genericPrimaryButtonSlim a:disabled,
+.genericSecondaryButtonSlim a:disabled,
+.genericTertiaryButtonSlim a:disabled{
+    background-color: #E5E8E8;
+    color: #B9B8BB;
+    
+}
+select{
+    font-family: HPSimplifiedW04-Regular;    
+    font-size:16px;
+    line-height:22px;
+    color:#767676;
+    border: 2px solid #CCCCCC;
+    background-color:#FFFFFF;
+}
+select:hover{
+    border: 2px solid #5A5A5A;    
+}
+select:focus{
+    border: 2px solid #5A5A5A;    
+    color: #007DBA;
+}
+input[type="select"]{
+    border:2px solid #5A5A5A;
+    font-family: HPSimplifiedW04-Regular;
+    height:26px;
+    font-size:16px;
+    line-height:22px;
+    color:#007DBA;
+    border: 2px solid #CCCCCC;
+    background-color:#FFFFFF;
+}
+input[type="text"], 
+input[type="email"],
+input[type="tel"],
+input[type="password"]{
+    border:2px solid #CCCCCC;
+    font-family: HPSimplifiedW04-Regular;    
+    font-size:16px;
+    line-height:22px;
+    color:#767676;    
+    background-color:#FFFFFF;
+    padding:1px 0px 0px 5px;
+}
+input[type="text"]:hover, 
+input[type="email"]:hover, 
+input[type="tel"]:hover, 
+input[type="password"]:hover{
+    border:2px solid #5A5A5A;
+}
+input[type="text"]:focus,
+input[type="text"]:active, 
+input[type="email"]:focus,
+input[type="email"]:active, 
+input[type="tel"]:focus,
+input[type="tel"]:active, 
+input[type="password"]:focus,
+input[type="password"]:active{
+    border:2px solid #5A5A5A;
+    color: #000000;
+}
+
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="tel"]:disabled,
+input[type="password"]:disabled{
+    border:2px solid #CCCCCC;
+    color: #B3B3B3;
+    background-color: #E5E5E5;
+}
+
+input[type="checkbox"]{
+    border: 2px solid #CCCCCC;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+input[type="checkbox"]:hover{
+    border: 2px solid #5A5A5A;
+    
+}
+input[type="checkbox"]:active{
+    border: none;
+    background-color: #0096D6;  
+}
+input[type="checkbox"]:checked{
+    border: none;
+    background-color: #0096D6;
+    color: #FFFFFF;
+}
+input[type="submit"]:active x{
+    border: none;
+    background-color: #0096D6;
+    color: #FFFFFF;
+}
+/*-- 3 colums layout of the entire application --*/
+#leftColumn{
+    float: left;
+    margin: 4px 2px 4px 2px;    
+}
+#centerColumn{
+    float: left;
+    margin: 4px 2px 4px 2px;    
+}
+#rightColumn{
+    float: right;
+    margin: 4px 2px 4px 2px;        
+    min-width: 180px;
+    max-width: 220px;
+
+}
+#centerColumnMyProfile{    
+    margin: auto auto;    
+}
+#leftColumnMyProfile{
+    float: left;
+    margin: 4px 2px 4px 2%;    
+}
+#rightColumnMyProfile{
+    float: right;
+    margin: 4px 2% 4px 2px;    
+}

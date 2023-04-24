@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+@import "globalStyle.css";
+
+#schedule{
+    float: left;
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    margin-left:2px;
+    padding: 2px 4px 3px 4px;
+    box-shadow: 5px 10px 20px #767676;
+    background-color: #FFFFFF;
+    width: 800px;
+}
+#scheduleDays{
+    float: left;
+    /*width:70%;*/    
+    border:solid thin #999;
+    border-radius:0 0 5px 5px;
+    -moz-border-radius:5px;
+    max-width: 800px;
+    background-color: #0096D6;
+}
+#tittle{
+    float: left;
+    text-align:center;
+    width:100%;
+    background-color: #0096D6; 
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#rowHistory2{
+    float: left;    
+    text-align:center;
+    width:100%;        
+    background-color:#767676;	
+    color: #FFFFFF;
+}
+#rowHistory2 div, 
+#rowHistory3 div{
+    float: left;
+    width:140px;        
+    padding: 3px 3px 3px 3px;
+    color: #000000;
+    margin: 0px 4px 5px 5px;    
+    
+    border:dashed thin #B9B8BB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    margin-left:2px;
+    padding: 2px 4px 3px 4px;
+    box-shadow: 5px 10px 20px #767676;
+    background-color: #FFFFFF;
+}
