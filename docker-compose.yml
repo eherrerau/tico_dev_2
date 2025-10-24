@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - .:/var/www/html
+      - ./logs:/var/www/html/logs
+    environment:
+      - APP_ENV=development
+      - APP_DEBUG=true
+    depends_on:
+      - sqlserver
+    networks:
+      - tico-network
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - ./database:/docker-entrypoint-initdb.d
+    networks:
+      - tico-network
+
+  phpmyadmin:
+    image: adminer
+    ports:
+      - "8081:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=sqlserver
+    depends_on:
+      - sqlserver
+    networks:
+      - tico-network
+
+volumes:
+  sqlserver_data:
+
+networks:
+  tico-network:
+    driver: bridge
