@@ -18,7 +18,7 @@ try {
     echo '<option value="">-- Select Product --</option>';
     
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo '<option value="' . htmlspecialchars($row['id']) . '">' . 
+        echo '<option value="' . htmlspecialchars((string) $row['id']) . '">' . 
              htmlspecialchars($row['name']) . '</option>';
     }
     
@@ -30,5 +30,6 @@ try {
     echo '<option value="">-- Products Unavailable --</option>';
     echo '</select>';
 }
-closeDBConnetion();
+
+// Legacy function no longer needed with modern PDO connections
 ?>
