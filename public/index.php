@@ -44,15 +44,26 @@ $csrfToken = $authService->getCsrfToken();
     <link href="assets/css/newsBox.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/header.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dashboard-modern.css" rel="stylesheet" type="text/css" />
     
     <link rel="shortcut icon" type="image/x-icon" href="assets/media/images/favicon.ico">
 </head>
 <body>
     <div id="principal">
-        <?php include __DIR__ . '/modules/header.php'; ?>
+        <?php include __DIR__ . '/../modules/header.php'; ?>
         
         <div id="mainContent">
+            <!-- Top Dashboard Stats -->
+            <div id="topStats">
+                <?php include __DIR__ . '/../modules/dashboardStats.php'; ?>
+            </div>
+            
             <div id="leftColumn">
+                <!-- Engineers Grid -->
+                <div id="engineersSection">
+                    <?php include __DIR__ . '/../modules/engineersGrid.php'; ?>
+                </div>
+                
                 <div id="boxesMainSection">
                     <div id="leyendDescriptionLink">
                         <i class="icon-question-sign" style="color: #D7410B"></i>Legend
@@ -66,47 +77,52 @@ $csrfToken = $authService->getCsrfToken();
                         </ul>
                     </div>
                     
-                    <!-- Available Engineers Box -->
-                    <div id="availableBox">
-                        <?php include __DIR__ . '/modules/engineersBox.php'; ?>
+                    <!-- Available Engineers Box (Legacy) -->
+                    <div id="availableBox" style="display: none;">
+                        <?php include __DIR__ . '/../modules/engineersBox.php'; ?>
                     </div>
                     
-                    <!-- Not Available Engineers Box -->
-                    <div id="notAvailableBox">
-                        <?php include __DIR__ . '/modules/notAvailableBox.php'; ?>
+                    <!-- Not Available Engineers Box (Legacy) -->
+                    <div id="notAvailableBox" style="display: none;">
+                        <?php include __DIR__ . '/../modules/notAvailableBox.php'; ?>
                     </div>
                 </div>
             </div>
             
             <div id="centerColumn">
+                <!-- Recent Cases List -->
+                <div id="casesListBox">
+                    <?php include __DIR__ . '/../modules/casesList.php'; ?>
+                </div>
+                
                 <!-- Cases Assignment Form -->
                 <div id="casesAssignFormBox">
-                    <?php include __DIR__ . '/modules/casesAssignForm.php'; ?>
+                    <?php include __DIR__ . '/../modules/casesAssignForm.php'; ?>
                 </div>
                 
                 <!-- News and Updates Box -->
                 <div id="newsBox">
-                    <?php include __DIR__ . '/modules/newsBox.php'; ?>
+                    <?php include __DIR__ . '/../modules/newsBoxModern.php'; ?>
                 </div>
                 
                 <!-- Schedule Exceptions Box -->
                 <div id="exceptionsBox">
-                    <?php include __DIR__ . '/modules/exceptionsBoxes.php'; ?>
+                    <?php include __DIR__ . '/../modules/exceptionsBoxes.php'; ?>
                 </div>
             </div>
             
             <div id="rightColumn">
                 <!-- Main Menu -->
-                <?php include __DIR__ . '/modules/rightMenu.php'; ?>
+                <?php include __DIR__ . '/../modules/rightMenu.php'; ?>
                 
                 <!-- Personal Statistics -->
                 <div id="statisticsBox">
-                    <?php include __DIR__ . '/modules/personalStatistics.php'; ?>
+                    <?php include __DIR__ . '/../modules/personalStatistics.php'; ?>
                 </div>
                 
                 <!-- Today's Cases -->
                 <div id="todayCasesBox">
-                    <?php include __DIR__ . '/modules/todayCasesList.php'; ?>
+                    <?php include __DIR__ . '/../include/todayCasesList.php'; ?>
                 </div>
             </div>
         </div>

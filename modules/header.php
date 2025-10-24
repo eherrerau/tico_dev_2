@@ -11,7 +11,7 @@ $currentUser = $authService->getCurrentUser();
 
 <div id="header">
     <div id="headerImage">
-        <img src="../assets/media/images/HPR_White_RGB_150_SM.png" 
+        <img src="assets/media/images/HPR_White_RGB_150_SM.png" 
              alt="<?= htmlspecialchars($config->get('app.name')) ?>" 
              title="<?= htmlspecialchars($config->get('app.name')) ?>">
     </div>

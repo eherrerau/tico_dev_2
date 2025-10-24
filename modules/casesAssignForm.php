@@ -24,7 +24,7 @@
         </div>
         <div id="productHolder">
             <div id="product_lb">Product</div>
-            <div id="product"><?php include("/include/getProducts.php"); ?></div>
+            <div id="product"><?php include(__DIR__ . "/../include/getProducts.php"); ?></div>
         </div>
         <div id="premierHolder">
             <div id="premier_lb">Premier</div>

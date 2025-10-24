@@ -1,9 +1,12 @@
+<?php 
+include_once __DIR__ . '/../include/functions.php';
+?>
 <div id="exception">
-                        <form name="exceptionForm"  id="exceptionForm" method="post" action="include/insertSchedExcep.php">
+                        <form name="exceptionForm"  id="exceptionForm" method="post" action="../include/insertSchedExcep.php">
                             <div id="excTitle"><h1>Schedule Exceptions</h1></div>                            
                             <div id="engineerNameTitle">Engineer:</div>
                             <div id="engineerNameList">
-                                <?php include_once 'include/getFullEngineerList.php'; ?>
+                                <?php include_once __DIR__ . '/../include/getFullEngineerList.php'; ?>
                             </div>                            
                             <div id="tipo2">Type:</div>
                             <div id="schTypeList"><select name="schedExecList"><?php echo $schedList = implode(getSchedExcepList()) ?></select></div>
