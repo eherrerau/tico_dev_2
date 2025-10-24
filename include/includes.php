@@ -14,6 +14,6 @@
  *
  ***************************************************/
 
-require_once "/classes/TZSelector.php";
+require_once __DIR__ . "/../classes/TZSelector.php";
 
 ?>
