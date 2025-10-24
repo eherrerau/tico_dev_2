@@ -13,19 +13,19 @@ use Monolog\Handler\StreamHandler;
 
 class AuthService
 {
-    private TestUser $userModel;
-    private InputValidator $validator;
-    private CsrfManager $csrfManager;
+    private readonly TestUser $testUser;
+    private readonly InputValidator $inputValidator;
+    private readonly CsrfManager $csrfManager;
     private Logger $logger;
-    private Config $config;
+    private readonly Config $config;
 
     public function __construct()
     {
-        $this->userModel = new TestUser();
-        $this->validator = new InputValidator();
+        $this->testUser = new TestUser();
+        $this->inputValidator = new InputValidator();
         $this->csrfManager = new CsrfManager();
         $this->config = Config::getInstance();
-        
+
         $this->initializeLogger();
         $this->initializeSession();
     }
@@ -41,15 +41,15 @@ class AuthService
     {
         if (session_status() === PHP_SESSION_NONE) {
             $sessionConfig = $this->config->get('session');
-            
+
             ini_set('session.cookie_lifetime', $sessionConfig['lifetime'] * 60);
             ini_set('session.cookie_secure', $sessionConfig['secure'] ? '1' : '0');
             ini_set('session.cookie_httponly', $sessionConfig['httponly'] ? '1' : '0');
             ini_set('session.cookie_samesite', $sessionConfig['samesite']);
             ini_set('session.use_strict_mode', '1');
-            
+
             session_start();
-            
+
             // Regenerate session ID periodically for security
             if (!isset($_SESSION['last_regeneration'])) {
                 $this->regenerateSession();
@@ -63,23 +63,23 @@ class AuthService
     {
         try {
             // Validate and sanitize input
-            $validatedData = $this->validator->validateLogin($credentials);
-            
+            $validatedData = $this->inputValidator->validateLogin($credentials);
+
             // Check for too many failed attempts
             if ($this->isAccountLocked($validatedData['username'])) {
                 $this->logger->warning('Login attempt on locked account', [
                     'username' => $validatedData['username'],
-                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
                 ]);
-                
+
                 return [
                     'success' => false,
-                    'message' => 'Account temporarily locked due to too many failed attempts'
+                    'message' => 'Account temporarily locked due to too many failed attempts',
                 ];
             }
 
             // Attempt authentication
-            $user = $this->userModel->authenticate(
+            $user = $this->testUser->authenticate(
                 $validatedData['username'],
                 $validatedData['password'],
                 (int)$validatedData['team_id']
@@ -89,41 +89,38 @@ class AuthService
                 // Successful login
                 $this->createUserSession($user);
                 $this->clearFailedAttempts($validatedData['username']);
-                
+
                 $this->logger->info('User logged in successfully', [
                     'user_id' => $user['usrId'],
                     'username' => $user['usrName'],
-                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
                 ]);
 
                 return [
                     'success' => true,
                     'message' => 'Login successful',
-                    'user' => $this->sanitizeUserData($user)
-                ];
-            } else {
-                // Failed login
-                $this->recordFailedAttempt($validatedData['username']);
-                
-                $this->logger->warning('Login attempt failed', [
-                    'username' => $validatedData['username'],
-                    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
-                ]);
-
-                return [
-                    'success' => false,
-                    'message' => 'Invalid username or password'
+                    'user' => $this->sanitizeUserData($user),
                 ];
             }
+            // Failed login
+            $this->recordFailedAttempt($validatedData['username']);
+            $this->logger->warning('Login attempt failed', [
+                'username' => $validatedData['username'],
+                'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
+            ]);
+            return [
+                'success' => false,
+                'message' => 'Invalid username or password',
+            ];
         } catch (\Exception $e) {
             $this->logger->error('Login error', [
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'trace' => $e->getTraceAsString(),
             ]);
 
             return [
                 'success' => false,
-                'message' => 'An error occurred during login'
+                'message' => 'An error occurred during login',
             ];
         }
     }
@@ -133,7 +130,7 @@ class AuthService
         if ($this->isAuthenticated()) {
             $this->logger->info('User logged out', [
                 'user_id' => $_SESSION['user']['usrId'] ?? null,
-                'username' => $_SESSION['user']['usrName'] ?? null
+                'username' => $_SESSION['user']['usrName'] ?? null,
             ]);
         }
 
@@ -143,9 +140,10 @@ class AuthService
         // Delete the session cookie
         if (ini_get('session.use_cookies')) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-                $params['path'], $params['domain'],
-                $params['secure'], $params['httponly']
+            setcookie(
+                session_name(),
+                '',
+                ['expires' => time() - 42000, 'path' => $params['path'], 'domain' => $params['domain'], 'secure' => $params['secure'], 'httponly' => $params['httponly']]
             );
         }
 
@@ -157,8 +155,8 @@ class AuthService
 
     public function isAuthenticated(): bool
     {
-        return isset($_SESSION['user']) && 
-               isset($_SESSION['authenticated']) && 
+        return isset($_SESSION['user']) &&
+               isset($_SESSION['authenticated']) &&
                $_SESSION['authenticated'] === true;
     }
 
@@ -188,7 +186,7 @@ class AuthService
             return false;
         }
 
-        return $this->userModel->hasRole($userId, $roleId);
+        return $this->testUser->hasRole($userId, $roleId);
     }
 
     public function requireAuthentication(): void
@@ -202,7 +200,7 @@ class AuthService
     public function requireRole(int $roleId): void
     {
         $this->requireAuthentication();
-        
+
         if (!$this->hasRole($roleId)) {
             header('HTTP/1.1 403 Forbidden');
             echo 'Access denied';
@@ -213,15 +211,15 @@ class AuthService
     private function createUserSession(array $user): void
     {
         $this->regenerateSession();
-        
+
         $_SESSION['authenticated'] = true;
         $_SESSION['user'] = $this->sanitizeUserData($user);
         $_SESSION['login_time'] = time();
         $_SESSION['last_activity'] = time();
-        
+
         // Store user roles and products in session for quick access
-        $_SESSION['user_roles'] = $this->userModel->getUserRoles($user['usrId']);
-        $_SESSION['user_products'] = $this->userModel->getUserProducts($user['usrId']);
+        $_SESSION['user_roles'] = $this->testUser->getUserRoles($user['usrId']);
+        $_SESSION['user_products'] = $this->testUser->getUserProducts($user['usrId']);
     }
 
     private function sanitizeUserData(array $user): array
@@ -241,15 +239,15 @@ class AuthService
     {
         $maxAttempts = $this->config->get('security.max_login_attempts', 5);
         $lockoutDuration = $this->config->get('security.lockout_duration', 900); // 15 minutes
-        
+
         $key = 'failed_attempts_' . md5($username);
         $attempts = $_SESSION[$key] ?? [];
-        
+
         // Remove old attempts
         $cutoff = time() - $lockoutDuration;
-        $attempts = array_filter($attempts, fn($time) => $time > $cutoff);
+        $attempts = array_filter($attempts, fn ($time): bool => $time > $cutoff);
         $_SESSION[$key] = $attempts;
-        
+
         return count($attempts) >= $maxAttempts;
     }
 
@@ -297,7 +295,7 @@ class AuthService
 
         $sessionLifetime = $this->config->get('session.lifetime', 120) * 60; // Convert to seconds
         $lastActivity = $_SESSION['last_activity'] ?? 0;
-        
+
         if (time() - $lastActivity > $sessionLifetime) {
             $this->logout();
             return false;

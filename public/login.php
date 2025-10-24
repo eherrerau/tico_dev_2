@@ -26,13 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $error = 'Security token validation failed. Please try again.';
         } else {
             $result = $authService->login($_POST);
-            
+
             if ($result['success']) {
                 header('Location: /index.php');
                 exit;
-            } else {
-                $error = $result['message'] ?? 'Login failed';
             }
+            $error = $result['message'] ?? 'Login failed';
         }
     } catch (Exception $e) {
         $error = 'An error occurred during login: ' . $e->getMessage();
@@ -60,7 +59,7 @@ $csrfToken = $authService->getCsrfToken();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($config->get('app.name')) ?> - Login</title>
+    <title><?= htmlspecialchars((string) $config->get('app.name')) ?> - Login</title>
     
     <!-- Security meta tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -77,10 +76,10 @@ $csrfToken = $authService->getCsrfToken();
 <body>
     <div id="header">
         <div id="headerImage">
-            <img src="assets/media/images/HPR_White_RGB_150_SM.png" alt="<?= htmlspecialchars($config->get('app.name')) ?>">
+            <img src="assets/media/images/HPR_White_RGB_150_SM.png" alt="<?= htmlspecialchars((string) $config->get('app.name')) ?>">
         </div>
         <div id="headerTitleH1">
-            <h1><?= htmlspecialchars($config->get('app.name')) ?></h1>
+            <h1><?= htmlspecialchars((string) $config->get('app.name')) ?></h1>
         </div>
     </div>
     
@@ -91,11 +90,11 @@ $csrfToken = $authService->getCsrfToken();
                     <?php if ($error): ?>
                         <div id="errorMessage" class="alert alert-error">
                             <i class="icon-exclamation-sign"></i>
-                            <?= htmlspecialchars($error) ?>
+                            <?= htmlspecialchars((string) $error) ?>
                         </div>
                     <?php endif; ?>
                     
-                    <?php if ($success): ?>
+                    <?php if ($success !== '' && $success !== '0'): ?>
                         <div id="successMessage" class="alert alert-success">
                             <i class="icon-ok-sign"></i>
                             <?= htmlspecialchars($success) ?>
@@ -142,15 +141,15 @@ $csrfToken = $authService->getCsrfToken();
                                         foreach ($teams as $team) {
                                             $teamId = $team['teamID'] ?? $team['team'] ?? '1';
                                             $teamName = $team['teamName'] ?? $team['team'] ?? 'Default Team';
-                                            echo '<option value="' . htmlspecialchars($teamId) . '">' . 
-                                                 htmlspecialchars($teamName) . '</option>';
+                                            echo '<option value="' . htmlspecialchars((string) $teamId) . '">' .
+                                                 htmlspecialchars((string) $teamName) . '</option>';
                                         }
-                                    } catch (Exception $e) {
+                                    } catch (Exception) {
                                         echo '<option value="1">Support</option>';
                                         echo '<option value="2">IT</option>';
                                         echo '<option value="3">Admin</option>';
                                     }
-                                    ?>
+?>
                                 </select>
                             </div>
                         </div>
@@ -169,7 +168,7 @@ $csrfToken = $authService->getCsrfToken();
     </div>
 
     <!-- JavaScript -->
-    <script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function() {
             // Form validation

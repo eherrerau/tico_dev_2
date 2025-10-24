@@ -28,7 +28,7 @@ $csrfToken = $authService->getCsrfToken();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($config->get('app.name')) ?></title>
+    <title><?= htmlspecialchars((string) $config->get('app.name')) ?></title>
     
     <!-- Security meta tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -49,7 +49,7 @@ $csrfToken = $authService->getCsrfToken();
 </head>
 <body>
     <div id="principal">
-        <?php include 'modules/header.php'; ?>
+        <?php include __DIR__ . '/modules/header.php'; ?>
         
         <div id="mainContent">
             <div id="leftColumn">
@@ -68,12 +68,12 @@ $csrfToken = $authService->getCsrfToken();
                     
                     <!-- Available Engineers Box -->
                     <div id="availableBox">
-                        <?php include 'modules/engineersBox.php'; ?>
+                        <?php include __DIR__ . '/modules/engineersBox.php'; ?>
                     </div>
                     
                     <!-- Not Available Engineers Box -->
                     <div id="notAvailableBox">
-                        <?php include 'modules/notAvailableBox.php'; ?>
+                        <?php include __DIR__ . '/modules/notAvailableBox.php'; ?>
                     </div>
                 </div>
             </div>
@@ -81,32 +81,32 @@ $csrfToken = $authService->getCsrfToken();
             <div id="centerColumn">
                 <!-- Cases Assignment Form -->
                 <div id="casesAssignFormBox">
-                    <?php include 'modules/casesAssignForm.php'; ?>
+                    <?php include __DIR__ . '/modules/casesAssignForm.php'; ?>
                 </div>
                 
                 <!-- News and Updates Box -->
                 <div id="newsBox">
-                    <?php include 'modules/newsBox.php'; ?>
+                    <?php include __DIR__ . '/modules/newsBox.php'; ?>
                 </div>
                 
                 <!-- Schedule Exceptions Box -->
                 <div id="exceptionsBox">
-                    <?php include 'modules/exceptionsBoxes.php'; ?>
+                    <?php include __DIR__ . '/modules/exceptionsBoxes.php'; ?>
                 </div>
             </div>
             
             <div id="rightColumn">
                 <!-- Main Menu -->
-                <?php include 'modules/rightMenu.php'; ?>
+                <?php include __DIR__ . '/modules/rightMenu.php'; ?>
                 
                 <!-- Personal Statistics -->
                 <div id="statisticsBox">
-                    <?php include 'modules/personalStatistics.php'; ?>
+                    <?php include __DIR__ . '/modules/personalStatistics.php'; ?>
                 </div>
                 
                 <!-- Today's Cases -->
                 <div id="todayCasesBox">
-                    <?php include 'modules/todayCasesList.php'; ?>
+                    <?php include __DIR__ . '/modules/todayCasesList.php'; ?>
                 </div>
             </div>
         </div>

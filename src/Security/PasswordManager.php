@@ -8,7 +8,7 @@ use Tico\Config\Config;
 
 class PasswordManager
 {
-    private Config $config;
+    private readonly Config $config;
 
     public function __construct()
     {
@@ -20,8 +20,8 @@ class PasswordManager
      */
     public function hash(string $password): string
     {
-        $cost = $this->config->get('security.password_cost', 12);
-        
+        $this->config->get('security.password_cost', 12);
+
         return password_hash($password, PASSWORD_ARGON2ID, [
             'memory_cost' => 65536, // 64 MB
             'time_cost' => 4,       // 4 iterations
@@ -42,8 +42,8 @@ class PasswordManager
      */
     public function needsRehash(string $hash): bool
     {
-        $cost = $this->config->get('security.password_cost', 12);
-        
+        $this->config->get('security.password_cost', 12);
+
         return password_needs_rehash($hash, PASSWORD_ARGON2ID, [
             'memory_cost' => 65536,
             'time_cost' => 4,
@@ -61,7 +61,7 @@ class PasswordManager
             // Create a new secure hash
             return $this->hash($plainPassword);
         }
-        
+
         return null;
     }
 
@@ -72,11 +72,11 @@ class PasswordManager
     {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
         $password = '';
-        
+
         for ($i = 0; $i < $length; $i++) {
             $password .= $characters[random_int(0, strlen($characters) - 1)];
         }
-        
+
         return $password;
     }
 
@@ -86,27 +86,27 @@ class PasswordManager
     public function validatePasswordStrength(string $password): array
     {
         $errors = [];
-        
+
         if (strlen($password) < 8) {
             $errors[] = 'Password must be at least 8 characters long';
         }
-        
+
         if (!preg_match('/[a-z]/', $password)) {
             $errors[] = 'Password must contain at least one lowercase letter';
         }
-        
+
         if (!preg_match('/[A-Z]/', $password)) {
             $errors[] = 'Password must contain at least one uppercase letter';
         }
-        
-        if (!preg_match('/[0-9]/', $password)) {
+
+        if (!preg_match('/\d/', $password)) {
             $errors[] = 'Password must contain at least one number';
         }
-        
+
         if (!preg_match('/[^a-zA-Z0-9]/', $password)) {
             $errors[] = 'Password must contain at least one special character';
         }
-        
+
         return $errors;
     }
 }

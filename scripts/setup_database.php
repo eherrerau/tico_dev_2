@@ -1,7 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Database Setup Script
- * 
+ *
  * This script creates a local SQLite database for testing purposes
  * when MSSQL is not available.
  */
@@ -28,9 +30,9 @@ if (!is_dir($dataDir)) {
 try {
     $pdo = new PDO("sqlite:$dbPath");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     echo "Connected to SQLite database: $dbPath\n";
-    
+
     // Create users table
     $createUsersTable = "
         CREATE TABLE IF NOT EXISTS users (
@@ -46,12 +48,12 @@ try {
             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     ";
-    
+
     $pdo->exec($createUsersTable);
     echo "Created users table\n";
-    
+
     // Create sessions table
-    $createSessionsTable = "
+    $createSessionsTable = '
         CREATE TABLE IF NOT EXISTS sessions (
             id VARCHAR(128) PRIMARY KEY,
             user_id INTEGER NOT NULL,
@@ -60,14 +62,14 @@ try {
             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users(id)
         )
-    ";
-    
+    ';
+
     $pdo->exec($createSessionsTable);
     echo "Created sessions table\n";
-    
+
     // Create test users
     $passwordManager = new PasswordManager();
-    
+
     $testUsers = [
         [
             'username' => 'admin',
@@ -75,7 +77,7 @@ try {
             'full_name' => 'Administrator',
             'email' => 'admin@tico.local',
             'team' => 'IT',
-            'role' => 'admin'
+            'role' => 'admin',
         ],
         [
             'username' => 'engineer1',
@@ -83,7 +85,7 @@ try {
             'full_name' => 'John Engineer',
             'email' => 'john@tico.local',
             'team' => 'Support',
-            'role' => 'engineer'
+            'role' => 'engineer',
         ],
         [
             'username' => 'user1',
@@ -91,43 +93,42 @@ try {
             'full_name' => 'Jane User',
             'email' => 'jane@tico.local',
             'team' => 'Support',
-            'role' => 'user'
-        ]
+            'role' => 'user',
+        ],
     ];
-    
-    $insertUser = $pdo->prepare("
+
+    $insertUser = $pdo->prepare('
         INSERT OR REPLACE INTO users 
         (username, password, full_name, email, team, role) 
         VALUES (:username, :password, :full_name, :email, :team, :role)
-    ");
-    
-    foreach ($testUsers as $user) {
-        $hashedPassword = $passwordManager->hash($user['password']);
-        
+    ');
+
+    foreach ($testUsers as $testUser) {
+        $hashedPassword = $passwordManager->hash($testUser['password']);
+
         $insertUser->execute([
-            'username' => $user['username'],
+            'username' => $testUser['username'],
             'password' => $hashedPassword,
-            'full_name' => $user['full_name'],
-            'email' => $user['email'],
-            'team' => $user['team'],
-            'role' => $user['role']
+            'full_name' => $testUser['full_name'],
+            'email' => $testUser['email'],
+            'team' => $testUser['team'],
+            'role' => $testUser['role'],
         ]);
-        
-        echo "Created test user: {$user['username']} (password: {$user['password']})\n";
+
+        echo "Created test user: {$testUser['username']} (password: {$testUser['password']})\n";
     }
-    
+
     echo "\nDatabase setup completed successfully!\n";
     echo "\nTest credentials:\n";
     echo "- Admin: admin / admin123\n";
     echo "- Engineer: engineer1 / engineer123\n";
     echo "- User: user1 / user123\n";
     echo "\nYou can now test the login functionality.\n";
-    
+
 } catch (PDOException $e) {
-    echo "Database error: " . $e->getMessage() . "\n";
+    echo 'Database error: ' . $e->getMessage() . "\n";
     exit(1);
 } catch (Exception $e) {
-    echo "Error: " . $e->getMessage() . "\n";
+    echo 'Error: ' . $e->getMessage() . "\n";
     exit(1);
 }
-?>

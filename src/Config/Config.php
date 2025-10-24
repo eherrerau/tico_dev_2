@@ -19,7 +19,7 @@ class Config
 
     public static function getInstance(): self
     {
-        if (self::$instance === null) {
+        if (!self::$instance instanceof \Tico\Config\Config) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -50,7 +50,9 @@ class Config
                     'driver' => $_ENV['DB_CONNECTION'] ?? 'sqlsrv',
                     'host' => $_ENV['DB_HOST'] ?? 'localhost',
                     'port' => (int)($_ENV['DB_PORT'] ?? 1433),
-                    'database' => $_ENV['DB_DATABASE'] ?? 'TICO_DB',
+                    'database' => ($_ENV['DB_CONNECTION'] ?? 'sqlsrv') === 'sqlite'
+                        ? __DIR__ . '/../../' . ($_ENV['DB_DATABASE'] ?? 'data/tico_test.db')
+                        : ($_ENV['DB_DATABASE'] ?? 'TICO_DB'),
                     'username' => $_ENV['DB_USERNAME'] ?? '',
                     'password' => $_ENV['DB_PASSWORD'] ?? '',
                     'charset' => 'utf8',
@@ -112,11 +114,11 @@ class Config
         $keys = explode('.', $key);
         $value = $this->config;
 
-        foreach ($keys as $k) {
-            if (!isset($value[$k])) {
+        foreach ($keys as $key) {
+            if (!isset($value[$key])) {
                 return $default;
             }
-            $value = $value[$k];
+            $value = $value[$key];
         }
 
         return $value;
@@ -127,11 +129,11 @@ class Config
         $keys = explode('.', $key);
         $config = &$this->config;
 
-        foreach ($keys as $k) {
-            if (!isset($config[$k])) {
-                $config[$k] = [];
+        foreach ($keys as $key) {
+            if (!isset($config[$key])) {
+                $config[$key] = [];
             }
-            $config = &$config[$k];
+            $config = &$config[$key];
         }
 
         $config = $value;

@@ -42,18 +42,18 @@ $csp = [
     "connect-src 'self'",
     "frame-ancestors 'none'",
     "base-uri 'self'",
-    "form-action 'self'"
+    "form-action 'self'",
 ];
 header('Content-Security-Policy: ' . implode('; ', $csp));
 
 // Global exception handler
-set_exception_handler(function (Throwable $exception) use ($config) {
-    error_log($exception->getMessage() . "\n" . $exception->getTraceAsString());
-    
+set_exception_handler(function (Throwable $throwable) use ($config): void {
+    error_log($throwable->getMessage() . "\n" . $throwable->getTraceAsString());
+
     if ($config->get('app.debug')) {
         echo '<h1>Error</h1>';
-        echo '<p>' . htmlspecialchars($exception->getMessage()) . '</p>';
-        echo '<pre>' . htmlspecialchars($exception->getTraceAsString()) . '</pre>';
+        echo '<p>' . htmlspecialchars($throwable->getMessage()) . '</p>';
+        echo '<pre>' . htmlspecialchars($throwable->getTraceAsString()) . '</pre>';
     } else {
         http_response_code(500);
         echo '<h1>Internal Server Error</h1>';
@@ -66,12 +66,11 @@ try {
     DatabaseManager::getInstance();
 } catch (Exception $e) {
     error_log('Database connection failed: ' . $e->getMessage());
-    
+
     if ($config->get('app.debug')) {
         die('Database connection failed: ' . $e->getMessage());
-    } else {
-        die('Service temporarily unavailable. Please try again later.');
     }
+    die('Service temporarily unavailable. Please try again later.');
 }
 
 // Create logs directory if it doesn't exist

@@ -1,0 +1,33 @@
+parameters:
+    level: 9
+    
+    paths:
+        - src
+        - public
+        - scripts
+    
+    excludePaths:
+        - vendor
+        - templates_c
+        - logs
+        - data
+        - zamorafr
+        - trash
+    
+    ignoreErrors:
+        - '#Call to an undefined method Twig\\Environment::#'
+        - '#PHPDoc tag @var#'
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics
+        
+    symfony:
+        container_xml_path: null
+        console_application_loader: null
+    reportUnmatchedIgnoredErrors: false
+    
+    parallel:
+        jobSize: 20
+        maximumNumberOfProcesses: 32
+        minimumNumberOfJobsPerProcess: 2

@@ -9,13 +9,13 @@ use Tico\Config\Config;
 class CsrfManager
 {
     private const TOKEN_LENGTH = 32;
-    private string $sessionKey;
-    
+    private readonly string $sessionKey;
+
     public function __construct()
     {
         $config = Config::getInstance();
         $this->sessionKey = $config->get('security.csrf_token_name', 'csrf_token');
-        
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -39,7 +39,7 @@ class CsrfManager
         if (!isset($_SESSION[$this->sessionKey])) {
             return $this->generateToken();
         }
-        
+
         return $_SESSION[$this->sessionKey];
     }
 
@@ -75,7 +75,7 @@ class CsrfManager
     {
         return [
             'name' => $this->sessionKey,
-            'value' => $this->getToken()
+            'value' => $this->getToken(),
         ];
     }
 
