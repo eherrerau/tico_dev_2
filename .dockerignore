@@ -1,0 +1,7 @@
+.git
+.gitignore
+.env
+old_stuf
+logs
+vendor
+views/templates_c

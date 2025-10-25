@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* CSS Document */
+@import "globalStyle.css";
+
+/* Main frame, inherits from the main.css */
+#principal #mainContentLogin{
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin:10% auto;
+}
+/* external box that contains the login*/
+#MainLoginBox {
+    clear: both;
+    float: none;
+    width: 380px;
+    height: 200px;
+    padding:10px;
+    margin: auto auto;
+    border: 2px dashed #B9B8BB;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -moz-box-shadow: 10px 20px 30px #767676;
+    -webkit-box-shadow: 10px 20px 30px #767676;
+    box-shadow: 10px 20px 30px #767676;
+    font-size: 1.45em;
+}
+/* Holds the form */
+/*#LoginForm{
+    width: 100%;	
+}*/
+/* hold the top icon */
+#LoginIconImage{
+    float: left;    
+    width: 144px;
+    height:144px;
+    background-image: url('../media/images/HPR_Blue_RGB_150_MD.gif');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    margin: 10px 0px 0px 5px;
+}
+/* Holds inside the username label and textbox divs, one next to each other*/
+#LoginUserNameContainer{
+    clear: right;
+    float: right;    
+    margin: 10px 0px 0px 0px;
+}
+/* holds the user name label */
+#LoginUserNameLabel{
+    float: left;
+}
+/* holds the username textbox */
+#LoginUserNameTextbox{
+    float: left;
+}
+/* Holds inside the password label and textbox divs, one next to each other*/
+#LoginPasswordContainer{
+    clear: right;
+    float: right;  
+    margin: 10px 0px 0px 0px;
+}
+/* holds the password label */
+#LoginPasswordLabel{
+    float: left;
+}
+/* holds the password textbox */
+#LoginPasswordTextbox{
+    float: left;
+}
+/* Holds inside the team selector label and textbox divs, one next to each other*/
+#LoginTeamSelector{
+    clear: right;
+    float: right; 
+    margin: 10px 0px 0px 0px;
+}
+/* holds the team selector label */
+#LoginTeamSelectorLabel{
+    float: left;
+}
+/* holds the team selector combobox */
+#LoginTeamSelectorCombobox{
+    float: left;
+    margin-left: 35px;
+}
+#input[type="text"]{
+    width:108px;
+    color:#06F;
+    border-color:#FFFFFF
+}
+
+/* holds the submit button */
+#LoginSubmitButton{    
+    clear: right;
+    float: right;
+    margin: 10px 0px 0px 0px;
+}
+/* Shows the error message if they are any */
+/*#ErrorLabelContainer{
+    position:absolute;
+    width:170px;
+    top:170px;
+    left:170px;
+    background-color:#F7D7D7;
+}*/
+#LoginErrorMessageLabel{
+    clear: right;
+    float: right;  
+    color: #FF0000;
+    margin: 10px 0px 0px 0px;
+}}
+
+/* Modern Login Form Styles */
+#loginFieldsContainer {
+    clear: right;
+    float: right;
+    width: 200px;
+    margin: 10px 0px 0px 0px;
+}
+
+#usernameContainer,
+#passwordContainer,
+#teamContainer {
+    margin-bottom: 15px;
+}
+
+#usernameContainer label,
+#passwordContainer label,
+#teamContainer label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#usernameContainer input,
+#passwordContainer input,
+#teamContainer select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+#teamContainer select {
+    width: 100%;
+}
+
+#loginButtonContainer {
+    clear: both;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#loginButton {
+    background-color: #0096D6;
+    color: white;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#loginButton:hover {
+    background-color: #007bb8;
+}
+
+#loginButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#loginInfo {
+    clear: both;
+    text-align: center;
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #666;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.alert i {
+    margin-right: 5px;
+}
+
+/* Ensure the login form box contains all elements properly */
+#MainLoginBox {
+    height: auto;
+    min-height: 200px;
+    padding: 20px;
+}
+
+#LoginForm {
+    width: 100%;
+    overflow: hidden;
+}
