@@ -185,8 +185,6 @@ class InputValidator
                 'sanitize' => ['trim', 'strip_tags'],
                 'validate' => [
                     'required' => true,
-                    'length' => ['min' => 1, 'max' => 50],
-                    'in' => ['IT', 'Support'],
                 ],
             ],
         ];

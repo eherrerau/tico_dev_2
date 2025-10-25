@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/bootstrap.php';
+require_once __DIR__ . '/../../src/bootstrap.php';
 
 use Tico\Database\DatabaseManager;
 
 try {
     $dbManager = DatabaseManager::getInstance();
-    $connection = $dbManager->getConnection('test');
+    $connection = $dbManager->getConnection();
     
     // Get various statistics
     $stats = [];

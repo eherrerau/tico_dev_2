@@ -20,8 +20,8 @@ try {
     $dbManager = DatabaseManager::getInstance();
     $passwordManager = new PasswordManager();
     
-    // Get SQLite connection
-    $connection = $dbManager->getConnection('test');
+    // Get default PostgreSQL connection
+    $connection = $dbManager->getConnection('default');
     
     echo "📊 Seeding database with test data...\n";
     

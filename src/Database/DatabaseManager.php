@@ -84,8 +84,8 @@ class DatabaseManager
     private function buildDsn(array $config): string
     {
         return match ($config['driver']) {
-            'sqlsrv' => sprintf(
-                'sqlsrv:Server=%s,%d;Database=%s;ConnectionPooling=0',
+            'pgsql' => sprintf(
+                'pgsql:host=%s;port=%d;dbname=%s',
                 $config['host'],
                 $config['port'],
                 $config['database']
@@ -96,10 +96,6 @@ class DatabaseManager
                 $config['port'],
                 $config['database'],
                 $config['charset'] ?? 'utf8mb4'
-            ),
-            'sqlite' => sprintf(
-                'sqlite:%s',
-                $config['database']
             ),
             default => throw new \InvalidArgumentException("Unsupported database driver: {$config['driver']}"),
         };

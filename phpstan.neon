@@ -11,8 +11,7 @@ parameters:
         - templates_c
         - logs
         - data
-        - zamorafr
-        - trash
+        - old_stuf
     
     ignoreErrors:
         - '#Call to an undefined method Twig\\Environment::#'

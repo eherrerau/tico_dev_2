@@ -1,49 +1,63 @@
-version: '3.8'
-
 services:
-  web:
-    build: .
+  nginx:
+    image: nginx:alpine
     ports:
       - "8080:80"
-      - "8443:443"
+    volumes:
+      - .:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - php-fpm
+    networks:
+      - tico-network
+
+  php-fpm:
+    build: .
     volumes:
       - .:/var/www/html
       - ./logs:/var/www/html/logs
     environment:
       - APP_ENV=development
       - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=tico_db
+      - DB_USERNAME=tico_user
+      - DB_PASSWORD=tico_password
     depends_on:
-      - sqlserver
+      - postgres
     networks:
       - tico-network
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+  postgres:
+    image: postgres:18
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong@Passw0rd
-      - MSSQL_PID=Express
+      - POSTGRES_DB=tico_db
+      - POSTGRES_USER=tico_user
+      - POSTGRES_PASSWORD=tico_password
     ports:
-      - "1433:1433"
+      - "5432:5432"
     volumes:
-      - sqlserver_data:/var/opt/mssql
-      - ./database:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
     networks:
       - tico-network
 
-  phpmyadmin:
+  adminer:
     image: adminer
     ports:
       - "8081:8080"
     environment:
-      - ADMINER_DEFAULT_SERVER=sqlserver
+      - ADMINER_DEFAULT_SERVER=postgres
     depends_on:
-      - sqlserver
+      - postgres
     networks:
       - tico-network
 
 volumes:
-  sqlserver_data:
+  postgres_data:
 
 networks:
   tico-network:

@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ===== header ===== */
+#header{
+    float: left;
+    height:25px;
+    width:100%;
+    background:#0096D6;	
+    z-index:1;
+}
+#header #headerImage img{
+    float: left;
+    width: 23px;
+    height: 23px;
+    margin: 1px 0px 1px 3px;   
+}
+
+#header #headerTitleH1 {
+    float: left;    
+}
+#header #userLogin{
+    float:right;
+    padding: 5px 10px 0px 0px;
+    color: #FFFFFF;    
+    margin-left:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+#header #rightInfo{
+    float: right;
+}
+#header #rightInfo #QMbar{
+    float: right;
+    padding: 5px 0px 0px 0px;
+    margin-left:20px;
+}
+#header #rightInfo #QMbar #QMLabel{
+    float: right;
+    padding:0px;
+    color:#FFFFFF;	
+}
+#header #rightInfo #QMbar #QMName{
+    float: right;
+    padding:0px;
+    color:#FFFFFF;
+    margin-left:5px;
+}
+
+/* Logout Button Styles */
+#header .logout-btn {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 2px 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    display: inline-block;
+}
+
+#header .logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+}
+
+#header .logout-btn i {
+    margin-right: 3px;
+}
+
+/* User Info Styles */
+#header #userInfo {
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+#header #userTeam {
+    float: right;
+    padding: 5px 10px 0px 0px;
+    color: #FFFFFF;
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+#header #userTimezone {
+    float: right;
+    padding: 5px 10px 0px 0px;
+    color: #FFFFFF;
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}

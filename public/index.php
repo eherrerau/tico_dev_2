@@ -50,18 +50,18 @@ $csrfToken = $authService->getCsrfToken();
 </head>
 <body>
     <div id="principal">
-        <?php include __DIR__ . '/../modules/header.php'; ?>
+        <?php include __DIR__ . '/../views/modules/header.php'; ?>
         
         <div id="mainContent">
             <!-- Top Dashboard Stats -->
             <div id="topStats">
-                <?php include __DIR__ . '/../modules/dashboardStats.php'; ?>
+                <?php include __DIR__ . '/../views/modules/dashboardStats.php'; ?>
             </div>
             
             <div id="leftColumn">
                 <!-- Engineers Grid -->
                 <div id="engineersSection">
-                    <?php include __DIR__ . '/../modules/engineersGrid.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/engineersGrid.php'; ?>
                 </div>
                 
                 <div id="boxesMainSection">
@@ -79,12 +79,12 @@ $csrfToken = $authService->getCsrfToken();
                     
                     <!-- Available Engineers Box (Legacy) -->
                     <div id="availableBox" style="display: none;">
-                        <?php include __DIR__ . '/../modules/engineersBox.php'; ?>
+                        <?php include __DIR__ . '/../views/modules/engineersBox.php'; ?>
                     </div>
                     
                     <!-- Not Available Engineers Box (Legacy) -->
                     <div id="notAvailableBox" style="display: none;">
-                        <?php include __DIR__ . '/../modules/notAvailableBox.php'; ?>
+                        <?php include __DIR__ . '/../views/modules/notAvailableBox.php'; ?>
                     </div>
                 </div>
             </div>
@@ -92,37 +92,37 @@ $csrfToken = $authService->getCsrfToken();
             <div id="centerColumn">
                 <!-- Recent Cases List -->
                 <div id="casesListBox">
-                    <?php include __DIR__ . '/../modules/casesList.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/casesList.php'; ?>
                 </div>
                 
                 <!-- Cases Assignment Form -->
                 <div id="casesAssignFormBox">
-                    <?php include __DIR__ . '/../modules/casesAssignForm.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/casesAssignForm.php'; ?>
                 </div>
                 
                 <!-- News and Updates Box -->
                 <div id="newsBox">
-                    <?php include __DIR__ . '/../modules/newsBoxModern.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/newsBoxModern.php'; ?>
                 </div>
                 
                 <!-- Schedule Exceptions Box -->
                 <div id="exceptionsBox">
-                    <?php include __DIR__ . '/../modules/exceptionsBoxes.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/exceptionsBoxes.php'; ?>
                 </div>
             </div>
             
             <div id="rightColumn">
                 <!-- Main Menu -->
-                <?php include __DIR__ . '/../modules/rightMenu.php'; ?>
+                <?php include __DIR__ . '/../views/modules/rightMenu.php'; ?>
                 
                 <!-- Personal Statistics -->
                 <div id="statisticsBox">
-                    <?php include __DIR__ . '/../modules/personalStatistics.php'; ?>
+                    <?php include __DIR__ . '/../views/modules/personalStatistics.php'; ?>
                 </div>
                 
                 <!-- Today's Cases -->
                 <div id="todayCasesBox">
-                    <?php include __DIR__ . '/../include/todayCasesList.php'; ?>
+                    <?php include __DIR__ . '/../old_stuf/include/todayCasesList.php'; ?>
                 </div>
             </div>
         </div>

@@ -30,57 +30,34 @@ class Config
         $rootPath = dirname(__DIR__, 2);
         if (file_exists($rootPath . '/.env')) {
             $dotenv = Dotenv::createImmutable($rootPath);
-            $dotenv->load();
+            $dotenv->safeLoad(); // Don't overwrite existing environment variables
         }
     }
 
     private function loadConfiguration(): void
     {
+        // Helper function to get environment variables from either $_SERVER or $_ENV
+        $env = function(string $key, $default = null) {
+            return $_SERVER[$key] ?? $_ENV[$key] ?? getenv($key) ?: $default;
+        };
+
         $this->config = [
             'app' => [
-                'name' => $_ENV['APP_NAME'] ?? 'TICO - Tickets Control Center',
-                'env' => $_ENV['APP_ENV'] ?? 'production',
-                'debug' => filter_var($_ENV['APP_DEBUG'] ?? false, FILTER_VALIDATE_BOOLEAN),
-                'url' => $_ENV['APP_URL'] ?? 'http://localhost',
-                'timezone' => $_ENV['APP_TIMEZONE'] ?? 'America/Costa_Rica',
-                'key' => $_ENV['APP_KEY'] ?? null,
+                'name' => $env('APP_NAME', 'TICO - Tickets Control Center'),
+                'env' => $env('APP_ENV', 'production'),
+                'debug' => filter_var($env('APP_DEBUG', false), FILTER_VALIDATE_BOOLEAN),
+                'url' => $env('APP_URL', 'http://localhost'),
+                'timezone' => $env('APP_TIMEZONE', 'America/Costa_Rica'),
+                'key' => $env('APP_KEY'),
             ],
             'database' => [
                 'default' => [
-                    'driver' => $_ENV['DB_CONNECTION'] ?? 'sqlsrv',
-                    'host' => $_ENV['DB_HOST'] ?? 'localhost',
-                    'port' => (int)($_ENV['DB_PORT'] ?? 1433),
-                    'database' => ($_ENV['DB_CONNECTION'] ?? 'sqlsrv') === 'sqlite'
-                        ? __DIR__ . '/../../' . ($_ENV['DB_DATABASE'] ?? 'data/tico_test.db')
-                        : ($_ENV['DB_DATABASE'] ?? 'TICO_DB'),
-                    'username' => $_ENV['DB_USERNAME'] ?? '',
-                    'password' => $_ENV['DB_PASSWORD'] ?? '',
-                    'charset' => 'utf8',
-                    'options' => [
-                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-                        \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-                        \PDO::ATTR_EMULATE_PREPARES => false,
-                    ],
-                ],
-                'test' => [
-                    'driver' => 'sqlite',
-                    'database' => __DIR__ . '/../../data/tico_test.db',
-                    'username' => '',
-                    'password' => '',
-                    'charset' => 'utf8',
-                    'options' => [
-                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-                        \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-                        \PDO::ATTR_EMULATE_PREPARES => false,
-                    ],
-                ],
-                'global' => [
-                    'driver' => $_ENV['DB_CONNECTION'] ?? 'sqlsrv',
-                    'host' => $_ENV['DB_HOST'] ?? 'localhost',
-                    'port' => (int)($_ENV['DB_PORT'] ?? 1433),
-                    'database' => $_ENV['DB_GLOBAL_DATABASE'] ?? 'TICO_Global',
-                    'username' => $_ENV['DB_USERNAME'] ?? '',
-                    'password' => $_ENV['DB_PASSWORD'] ?? '',
+                    'driver' => $env('DB_CONNECTION', 'pgsql'),
+                    'host' => $env('DB_HOST', 'localhost'),
+                    'port' => (int)$env('DB_PORT', 5432),
+                    'database' => $env('DB_DATABASE', 'tico_db'),
+                    'username' => $env('DB_USERNAME', 'tico_user'),
+                    'password' => $env('DB_PASSWORD', 'tico_password'),
                     'charset' => 'utf8',
                     'options' => [
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
@@ -90,14 +67,14 @@ class Config
                 ],
             ],
             'session' => [
-                'lifetime' => (int)($_ENV['SESSION_LIFETIME'] ?? 120),
-                'secure' => filter_var($_ENV['SESSION_SECURE'] ?? false, FILTER_VALIDATE_BOOLEAN),
-                'httponly' => filter_var($_ENV['SESSION_HTTP_ONLY'] ?? true, FILTER_VALIDATE_BOOLEAN),
-                'samesite' => $_ENV['SESSION_SAME_SITE'] ?? 'lax',
+                'lifetime' => (int)$env('SESSION_LIFETIME', 120),
+                'secure' => filter_var($env('SESSION_SECURE', false), FILTER_VALIDATE_BOOLEAN),
+                'httponly' => filter_var($env('SESSION_HTTP_ONLY', true), FILTER_VALIDATE_BOOLEAN),
+                'samesite' => $env('SESSION_SAME_SITE', 'lax'),
             ],
             'logging' => [
-                'channel' => $_ENV['LOG_CHANNEL'] ?? 'file',
-                'level' => $_ENV['LOG_LEVEL'] ?? 'debug',
+                'channel' => $env('LOG_CHANNEL', 'file'),
+                'level' => $env('LOG_LEVEL', 'debug'),
                 'path' => dirname(__DIR__, 2) . '/logs',
             ],
             'security' => [

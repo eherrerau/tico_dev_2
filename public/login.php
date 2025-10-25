@@ -43,6 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 // Handle logout
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     $authService->logout();
+    header('Location: /login.php?logout=1');
+    exit;
+}
+
+// Show logout success message
+if (isset($_GET['logout']) && $_GET['logout'] === '1') {
     $success = 'You have been successfully logged out.';
 }
 
@@ -203,63 +209,5 @@ $csrfToken = $authService->getCsrfToken();
             $('#password').val('');
         });
     </script>
-    
-    <style>
-        .alert {
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .alert-error {
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-        }
-        
-        .alert-success {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-        }
-        
-        .alert i {
-            margin-right: 5px;
-        }
-        
-        #loginForm input, #loginForm select {
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-        }
-        
-        #loginForm label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        
-        #loginButton {
-            background-color: #0096D6;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        
-        #loginButton:hover {
-            background-color: #007bb8;
-        }
-        
-        #loginButton:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-    </style>
 </body>
 </html>

@@ -44,7 +44,7 @@ try {
 try {
     // Check database connection
     $dbManager = DatabaseManager::getInstance();
-    $connection = $dbManager->getConnection('test');
+    $connection = $dbManager->getConnection('default');
 
     if ($connection) {
         $health['checks']['database'] = [
@@ -68,7 +68,7 @@ try {
 
 // Check if required directories exist
 $requiredDirs = [
-    'templates_c' => __DIR__ . '/../templates_c',
+    'templates_c' => __DIR__ . '/../views/templates_c',
     'logs' => __DIR__ . '/../logs',
 ];
 
@@ -104,7 +104,7 @@ if (version_compare($phpVersion, $minPhpVersion, '>=')) {
 }
 
 // Check required PHP extensions
-$requiredExtensions = ['pdo', 'pdo_sqlsrv', 'openssl', 'json'];
+$requiredExtensions = ['pdo', 'pdo_pgsql', 'openssl', 'json'];
 foreach ($requiredExtensions as $requiredExtension) {
     if (extension_loaded($requiredExtension)) {
         $health['checks']['extension_' . $requiredExtension] = [
